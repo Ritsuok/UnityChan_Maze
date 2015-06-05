@@ -26,5 +26,17 @@ namespace UnityChan
 			unitychan.enabled = false;
 			anim.SetBool ("Win", true);
 		}
+
+		void OnCollisionStay(Collision c){
+			if(c.gameObject.tag == "Floor"){
+				transform.parent = c.gameObject.transform;
+			}
+		}
+		
+		void OnCollisionExit(Collision c){
+			transform.parent = null;
+		}
+		
+
 	}
 }
